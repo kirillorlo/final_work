@@ -2,7 +2,16 @@ import argparse
 import csv
 import logging
 
+
 logging.basicConfig(level=logging.INFO) 
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("csv_file", help="путь к файлу CSV")
+args = parser.parse_args()
+
+csv_file = args.csv_file
+
 
 class Student:
     """
@@ -92,10 +101,6 @@ class Student:
         if len(total_grades) == 0:
             return 0
         return sum(total_grades) / len(total_grades)
-
-# parser = argparse.ArgumentParser()
-# parser.add_argument("subjects_file", help="subjects.csv")
-# args = parser.parse_args()
 
 
 student = Student("Иван Иванов", "subjects.csv")
